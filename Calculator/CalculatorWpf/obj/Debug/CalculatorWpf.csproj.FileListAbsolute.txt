@@ -1,0 +1,16 @@
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\CalculatorWpf.csproj.AssemblyReference.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\CalculatorWpf.csproj.SuggestedBindingRedirects.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\App.g.cs
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\CalculatorWpf_MarkupCompile.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\CalculatorWpf_MarkupCompile.lref
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\bin\Debug\CalculatorWpf.exe.config
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\bin\Debug\CalculatorWpf.exe
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\bin\Debug\CalculatorWpf.pdb
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\CalculatorWpf.g.resources
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\CalculatorWpf.Properties.Resources.resources
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\CalculatorWpf.csproj.GenerateResource.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\CalculatorWpf.csproj.CoreCompileInputs.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\CalculatorWpf.exe
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\CalculatorWpf.pdb
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\Views\CalculatorView.g.cs
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\Calculator\CalculatorWpf\obj\Debug\Views\CalculatorView.baml
