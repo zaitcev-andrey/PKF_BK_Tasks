@@ -5,51 +5,110 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatorWpf"
         mc:Ignorable="d"
-        Title="Калькулятор" Height="685" Width="460"
-        MinHeight="685" MinWidth="460">
-    <Grid Background="#FFF6FFE7">
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="96" Margin="0,23,0,0" VerticalAlignment="Top" Width="430"
-                DataContext="{Binding Model}">
-            <TextBox x:Name="expressionBox" TextWrapping="Wrap"
-                     VerticalAlignment="Center" HorizontalAlignment="Left"
-                     FontSize="36" Width="430" Height="96"
-                     Margin="0,0,0,0" IsReadOnly="True"
-                     Text="{Binding Path=ArithmeticExpression}"/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="115" Margin="0,131,0,0" VerticalAlignment="Top" Width="430">
-            <StackPanel Margin="5" DataContext="{Binding Model}">
-                <TextBlock x:Name="textBlockPolishNotation" TextWrapping="Wrap" FontSize="24"
-                                Text="{Binding Path=PolishNotation}"/>
-                <TextBlock x:Name="textBlockAnswer" TextWrapping="Wrap" FontSize="24"
-                                Text="{Binding Path=Result}"/>
-                <TextBlock x:Name="textBlockLogError" TextWrapping="Wrap" FontSize="14"
-                                Text="{Binding Path=LogError}"/>
-            </StackPanel>
+        Title="Калькулятор" Height="515" Width="335"
+        MinHeight="515" MinWidth="335">
 
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="FontSize" Value="26" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="IsReadOnly" Value="True" />
+        </Style>
+
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="22" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FFF6FFE7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border BorderBrush="Black" Grid.Row="0" Grid.ColumnSpan="4" BorderThickness="1" Margin="3"
+                DataContext="{Binding Model}">
+            <ScrollViewer>
+            <TextBox x:Name="expressionBox" FontSize="30" Style="{StaticResource TextBoxStyle}"
+                     Text="{Binding Path=ArithmeticExpression}"/>
+            </ScrollViewer>
         </Border>
-        <Button Command="{Binding EraseOneSymbol}" x:Name="button_C" Content="C" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Height="51" Width="140" FontSize="24" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding EraseAll}" x:Name="button_Erase" Content="Стереть" HorizontalAlignment="Left" Margin="168,260,0,0" VerticalAlignment="Top" Height="51" Width="140" FontSize="24" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddOperation}" CommandParameter="/" x:Name="button_Div" Content="/" HorizontalAlignment="Left" Margin="344,372,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddOperation}" CommandParameter="*" x:Name="button_Mult" Content="*" HorizontalAlignment="Left" Margin="344,428,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddOperation}" CommandParameter="-" x:Name="button_Minus" Content="-" HorizontalAlignment="Left" Margin="344,484,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddOperation}" CommandParameter="+" x:Name="button_Plus" Content="+" HorizontalAlignment="Left" Margin="344,540,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding Equality}" x:Name="button_Equality" Content="=" HorizontalAlignment="Left" Margin="344,594,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddNumber}" CommandParameter="7" x:Name="button_Number_7" Content="7" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddNumber}" CommandParameter="8" x:Name="button_Number_8" Content="8" HorizontalAlignment="Left" Margin="111,316,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddNumber}" CommandParameter="9" x:Name="button_Number_9" Content="9" HorizontalAlignment="Left" Margin="212,316,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddNumber}" CommandParameter="4" x:Name="button_Number_4" Content="4" HorizontalAlignment="Left" Margin="10,372,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddNumber}" CommandParameter="5" x:Name="button_Number_5" Content="5" HorizontalAlignment="Left" Margin="111,372,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddNumber}" CommandParameter="6" x:Name="button_Number_6" Content="6" HorizontalAlignment="Left" Margin="212,372,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddNumber}" CommandParameter="1" x:Name="button_Number_1" Content="1" HorizontalAlignment="Left" Margin="10,428,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddNumber}" CommandParameter="2" x:Name="button_Number_2" Content="2" HorizontalAlignment="Left" Margin="111,428,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddNumber}" CommandParameter="3" x:Name="button_Number_3" Content="3" HorizontalAlignment="Left" Margin="212,428,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddNumber}" CommandParameter="0" x:Name="button_Number_0" Content="0" HorizontalAlignment="Left" Margin="111,484,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddComma}" CommandParameter="," x:Name="button_Comma" Content="," HorizontalAlignment="Left" Margin="212,484,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddLeftBracket}" CommandParameter="(" x:Name="button_OpenBracket" Content="(" HorizontalAlignment="Left" Margin="10,540,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddRightBracket}" CommandParameter=")" x:Name="button_CloseBracket" Content=")" HorizontalAlignment="Left" Margin="111,540,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddSquareRoot}" CommandParameter="sqrt(" x:Name="button_Sqrt" Content="sqrt" HorizontalAlignment="Left" Margin="344,319,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddOperation}" CommandParameter="^" x:Name="button_Degree" Content="^" HorizontalAlignment="Left" Margin="344,260,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
-        <Button Command="{Binding AddPercent}" CommandParameter="%" x:Name="button_Percent" Content="%" HorizontalAlignment="Left" Margin="212,540,0,0" VerticalAlignment="Top" Height="51" Width="96" FontSize="36" FontWeight="Bold" Background="White"/>
+
+        <Border BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="4" BorderThickness="1" Margin="3">
+            <Grid DataContext="{Binding Model}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ScrollViewer Grid.Row="0">
+                    <TextBox x:Name="textBoxPolishNotation" Style="{StaticResource TextBoxStyle}"
+                                Text="{Binding Path=PolishNotation}"/>
+                </ScrollViewer>
+                
+                <ScrollViewer Grid.Row="1">
+                    <TextBox x:Name="textBoxAnswer" Style="{StaticResource TextBoxStyle}"
+                                Text="{Binding Path=Result}"/>
+                </ScrollViewer>
+
+                <ScrollViewer Grid.Row="2">
+                    <TextBlock x:Name="textBlockLogError" Style="{StaticResource TextBlockStyle}"
+                                Text="{Binding Path=LogError}"/>
+                </ScrollViewer>
+
+            </Grid>
+        </Border>
+
+        <Button Grid.Row="2" Grid.Column="0" Command="{Binding AddPercent}" CommandParameter="%" x:Name="button_Percent" Content="%" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="2" Grid.Column="1" Command="{Binding AddOperation}" CommandParameter="^" x:Name="button_Degree" Content="^" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="2" Grid.Column="2" Command="{Binding EraseAll}" x:Name="button_Erase" Content="Стереть" FontSize="18" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="2" Grid.Column="3" Command="{Binding EraseOneSymbol}" x:Name="button_C" Content="C" Style="{StaticResource ButtonStyle}"/>
+
+        <Button Grid.Row="3" Grid.Column="0" Command="{Binding AddNumber}" CommandParameter="7" x:Name="button_Number_7" Content="7" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="3" Grid.Column="1" Command="{Binding AddNumber}" CommandParameter="8" x:Name="button_Number_8" Content="8" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="3" Grid.Column="2" Command="{Binding AddNumber}" CommandParameter="9" x:Name="button_Number_9" Content="9" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="3" Grid.Column="3" Command="{Binding AddOperation}" CommandParameter="/" x:Name="button_Div" Content="/" Style="{StaticResource ButtonStyle}"/>
+
+        <Button Grid.Row="4" Grid.Column="0" Command="{Binding AddNumber}" CommandParameter="4" x:Name="button_Number_4" Content="4" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="4" Grid.Column="1" Command="{Binding AddNumber}" CommandParameter="5" x:Name="button_Number_5" Content="5" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="4" Grid.Column="2" Command="{Binding AddNumber}" CommandParameter="6" x:Name="button_Number_6" Content="6" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="4" Grid.Column="3" Command="{Binding AddOperation}" CommandParameter="*" x:Name="button_Mult" Content="*" Style="{StaticResource ButtonStyle}"/>
+
+        <Button Grid.Row="5" Grid.Column="0" Command="{Binding AddNumber}" CommandParameter="1" x:Name="button_Number_1" Content="1" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="5" Grid.Column="1" Command="{Binding AddNumber}" CommandParameter="2" x:Name="button_Number_2" Content="2" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="5" Grid.Column="2" Command="{Binding AddNumber}" CommandParameter="3" x:Name="button_Number_3" Content="3" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="5" Grid.Column="3" Command="{Binding AddOperation}" CommandParameter="-" x:Name="button_Minus" Content="-" Style="{StaticResource ButtonStyle}"/>
+
+        <Button Grid.Row="6" Grid.Column="1" Command="{Binding AddNumber}" CommandParameter="0" x:Name="button_Number_0" Content="0" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="6" Grid.Column="2" Command="{Binding AddComma}" CommandParameter="," x:Name="button_Comma" Content="," Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="6" Grid.Column="3" Command="{Binding AddOperation}" CommandParameter="+" x:Name="button_Plus" Content="+" Style="{StaticResource ButtonStyle}"/>
+
+        <Button Grid.Row="7" Grid.Column="0" Command="{Binding AddLeftBracket}" CommandParameter="(" x:Name="button_OpenBracket" Content="(" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="7" Grid.Column="1" Command="{Binding AddRightBracket}" CommandParameter=")" x:Name="button_CloseBracket" Content=")" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="7" Grid.Column="2" Command="{Binding AddSquareRoot}" CommandParameter="sqrt(" x:Name="button_Sqrt" Content="sqrt" Style="{StaticResource ButtonStyle}"/>
+        <Button Grid.Row="7" Grid.Column="3" Command="{Binding Equality}" x:Name="button_Equality" Content="=" Style="{StaticResource ButtonStyle}"/>
 
     </Grid>
 </Window>
