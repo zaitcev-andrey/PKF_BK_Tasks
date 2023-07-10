@@ -16,7 +16,7 @@
                      Margin="0,0,0,0" IsReadOnly="True"
                      Text="{Binding Path=ArithmeticExpression}"/>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="110" Margin="0,131,0,0" VerticalAlignment="Top" Width="430">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="115" Margin="0,131,0,0" VerticalAlignment="Top" Width="430">
             <StackPanel Margin="5" DataContext="{Binding Model}">
                 <TextBlock x:Name="textBlockPolishNotation" TextWrapping="Wrap" FontSize="24"
                                 Text="{Binding Path=PolishNotation}"/>

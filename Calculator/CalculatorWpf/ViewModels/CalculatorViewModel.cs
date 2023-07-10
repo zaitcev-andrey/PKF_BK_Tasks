@@ -252,6 +252,8 @@ namespace CalculatorWpf.ViewModels
                 {
                     try
                     {
+                        Model.PolishNotation = "";
+                        Model.Result = null;
                         Model.PolishNotation = CalculationExpressions.ArithmeticToPolishNotation(Model.ArithmeticExpression);
                         Model.Result = CalculationExpressions.PolishToValue(Model.PolishNotation);
                         if (!string.IsNullOrEmpty(Model.LogError))

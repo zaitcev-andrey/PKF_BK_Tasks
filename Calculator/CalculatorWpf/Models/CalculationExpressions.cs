@@ -199,11 +199,45 @@ namespace CalculatorWpf
                 {
                     double value1, value2 = 1.0;
                     // только для взятия корня и процента нужно извлечь 1 число
-                    if (input[i] == "s" || input[i] == "%")
+                    if (input[i] == "s")
                     {
                         value1 = result.Pop();
-                        if (input[i] == "s" && value1 < 0)
+                        if (value1 < 0)
                             throw new Exception("Ошибка, попытка взятия корня из отрицательного числа!");
+                    }
+                    else if(input[i] == "%")
+                    {
+                        value2 = result.Pop();
+                        if (result.Count > 0)
+                        {
+                            value1 = result.Pop();
+                            i++; // по следующему индексу точно будет операция
+                            switch (input[i])
+                            {
+                                case "+":
+                                    result.Push(value1 + value1 / 100 * value2);
+                                    break;
+                                case "-":
+                                    result.Push(value1 - value1 / 100 * value2);
+                                    break;
+                                case "*":
+                                    result.Push(value1 * (value2 / 100));
+                                    break;
+                                case "/":
+                                    if (value2 == 0)
+                                        throw new Exception("Ошибка, деление на нулевой процент!");
+                                    result.Push(value1 / (value2 / 100));
+                                    break;
+                                case "^":
+                                    result.Push(Math.Pow(value1, value2 / 100));
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            result.Push(0);
+                        }
+                        continue;
                     }
                     else
                     {
@@ -238,9 +272,6 @@ namespace CalculatorWpf
                             break;
                         case "s":
                             result.Push(Math.Sqrt(value1));
-                            break;
-                        case "%":
-                            result.Push(value1 / 100);
                             break;
                     }
                 }
