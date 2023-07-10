@@ -75,7 +75,8 @@ namespace CalculatorWpf.ViewModels
                 return _addOperation ??
                 (_addOperation = new RelayCommand(obj =>
                 {
-                    if (lastSymbol == 0 || lastSymbol == 2 || lastSymbol == 4)
+                    if (lastSymbol == 0 || lastSymbol == 2 || lastSymbol == 4 ||
+                    (lastSymbol == 5 && (string)obj == "-") || (lastSymbol == -1 && (string)obj == "-"))
                     {
                         lastSymbol = 1;
                         isCommaInNumber = false;
@@ -129,9 +130,9 @@ namespace CalculatorWpf.ViewModels
                 return _addSquareRoot ??
                 (_addSquareRoot = new RelayCommand(obj =>
                 {
-                    if (lastSymbol == 1 || lastSymbol == -1)
+                    if (lastSymbol == 1 || lastSymbol == 5 || lastSymbol == -1)
                     {
-                        lastSymbol = 1;
+                        lastSymbol = 5;
                         isCommaInNumber = false;
                         openBracketCounter++;
                         string c = (string)obj;
@@ -148,9 +149,9 @@ namespace CalculatorWpf.ViewModels
                 return _addLeftBracket ??
                 (_addLeftBracket = new RelayCommand(obj =>
                 {
-                    if (lastSymbol == 1 || lastSymbol == -1)
+                    if (lastSymbol == 1 || lastSymbol == 5 || lastSymbol == -1)
                     {
-                        lastSymbol = 1;
+                        lastSymbol = 5;
                         isCommaInNumber = false;
                         openBracketCounter++;
                         string c = (string)obj;
@@ -229,7 +230,7 @@ namespace CalculatorWpf.ViewModels
 
                         if (c >= '0' && c <= '9')
                             lastSymbol = 0;
-                        else if (c == '(' || c == '/' || c == '*' || c == '-' || c == '+' || c == '^')
+                        else if (c == '/' || c == '*' || c == '-' || c == '+' || c == '^')
                             lastSymbol = 1;
                         else if (c == ')')
                             lastSymbol = 2;
@@ -237,6 +238,8 @@ namespace CalculatorWpf.ViewModels
                             lastSymbol = 3;
                         else if (c == '%')
                             lastSymbol = 4;
+                        else if (c == '(')
+                            lastSymbol = 5;
                     }
                 },
                 (obj) => !string.IsNullOrEmpty(Model.ArithmeticExpression)));
@@ -281,10 +284,11 @@ namespace CalculatorWpf.ViewModels
         #region Rules for last symbol
         /* Создадим переменную, которая будет запоминать в себе последний введённый символ (lastSymbol)
         Если она равна 0, то было введено число (0 - 9)
-        Если равна 1, то операция или спец.символ ('-', '+', '*', '/', '^', '(' )
+        Если равна 1, то операция или спец.символ ('-', '+', '*', '/', '^')
         Если равна 2, то была ')'
         Если равна 3, то была ','
         Если равна 4, то был '%'
+        Если равна 5, то была '(' или 'sqrt('
         Если равна -1, то в строке ещё ничего нет
         */
         #endregion
