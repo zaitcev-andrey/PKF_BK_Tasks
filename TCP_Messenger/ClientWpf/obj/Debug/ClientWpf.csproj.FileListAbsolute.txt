@@ -1,0 +1,16 @@
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\bin\Debug\ClientWpf.exe.config
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\bin\Debug\ClientWpf.exe
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\bin\Debug\ClientWpf.pdb
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\ClientWpf.csproj.AssemblyReference.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\ClientWpf.csproj.SuggestedBindingRedirects.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\App.g.cs
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\ClientWpf_MarkupCompile.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\ClientWpf_MarkupCompile.lref
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\ClientWpf.g.resources
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\ClientWpf.Properties.Resources.resources
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\ClientWpf.csproj.GenerateResource.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\ClientWpf.csproj.CoreCompileInputs.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\ClientWpf.exe
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\ClientWpf.pdb
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\Views\MainWindow.g.cs
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ClientWpf\obj\Debug\Views\MainWindow.baml

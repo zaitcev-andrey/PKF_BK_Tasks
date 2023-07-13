@@ -1,0 +1,8 @@
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ServerClient\obj\Debug\ServerClient.csproj.AssemblyReference.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ServerClient\obj\Debug\ServerClient.csproj.SuggestedBindingRedirects.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ServerClient\obj\Debug\ServerClient.csproj.CoreCompileInputs.cache
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ServerClient\bin\Debug\ServerClient.exe.config
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ServerClient\bin\Debug\ServerClient.exe
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ServerClient\bin\Debug\ServerClient.pdb
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ServerClient\obj\Debug\ServerClient.exe
+C:\All Programming\Programming\Programming in C#\PKF BK studio\PKF_BK_Tasks\TCP_Messenger\ServerClient\obj\Debug\ServerClient.pdb
