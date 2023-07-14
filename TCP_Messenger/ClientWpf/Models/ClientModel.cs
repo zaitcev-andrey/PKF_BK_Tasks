@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-using ClientWpf.ViewModels;
-
-namespace ClientWpf.Model
+namespace ClientWpf.Models
 {
-    internal class ClientModel : BaseViewModel
+    internal class ClientModel : BaseModel
     {
         #region private Members
         private string _host;
@@ -116,13 +112,59 @@ namespace ClientWpf.Model
         }
         #endregion
 
+        #region public Methods
+        /// <summary>
+        /// Метод для подключения клиента к серверу
+        /// </summary>
+        public void ConnectToServer()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(Host) || Port == 0 || string.IsNullOrEmpty(UserName))
+                {
+                    ChatLog = "Не хватает данных для подключения, проверьте их и попробуйте снова";
+                    return;
+                }
+
+                // после выполнения Connect сервер принимает клиента методом AcceptAsync()
+                _clientSocket.Connect(Host, Port);
+
+                Task.Run(() => ReceiveDataAsync());
+                Task.Run(() => SendMessageAsync());
+                Task.Run(() => SendFileAsync());
+            }
+            catch (Exception ex)
+            {
+                ChatLog = ex.Message;
+            }
+        }
+
+        /// <summary>
+        /// В этом методе активируется отправка сообщения
+        /// </summary>
+        public void SendMessage()
+        {
+            _isSendMessage = true;
+        }
+
+        /// <summary>
+        /// В этом методе активируется отправка файла
+        /// </summary>
+        public void SendFile()
+        {
+            _isSendFile = true;
+        }
+        #endregion
+
         #region private Methods
+        /// <summary>
+        /// Метод для отправки сообщения на сервер
+        /// </summary>
+        /// <returns></returns>
         private async Task SendMessageAsync()
         {
-            // первым делом отправляем имя
-            // конвертируем данные в массив байтов
+            // Отправляем имя
             var messageBytes = Encoding.UTF8.GetBytes(UserName);
-            // отправляем данные
             _clientSocket.Send(messageBytes);
 
             ChatLog = "Вы вошли в чат";
@@ -145,6 +187,10 @@ namespace ClientWpf.Model
             }
         }
 
+        /// <summary>
+        /// Метод для отправки файла на сервер
+        /// </summary>
+        /// <returns></returns>
         private async Task SendFileAsync()
         {
             while (true)
@@ -176,23 +222,25 @@ namespace ClientWpf.Model
             }
         }
 
+        /// <summary>
+        /// Метод для получения данных от сервера
+        /// </summary>
+        /// <returns></returns>
         private async Task ReceiveDataAsync()
         {
             while (true)
             {
-                Task.Delay(10);
+                await Task.Delay(10);
                 var clientData = new byte[1024 * 10000]; // до 10мб
                 int receivedByteLen = _clientSocket.Receive(clientData);
                 try
                 {
                     if (receivedByteLen > 0)
                     {
+                        // Если без исключения ArgumentOutOfRangeException, значит пришёл файл
                         int fileNameLen = BitConverter.ToInt32(clientData, 0);
                         string fileFullName = Encoding.ASCII.GetString(clientData, 4, fileNameLen);
-
-                        // если смогли получить имя файла без ошибки, значит пришёл действительно файл, а если есть ошибка
-                        // то она обрабатывается в catch и значит мы получили обычное сообщение
-
+                        
                         string fileName = Path.GetFileName(fileFullName);
 
                         using (var stream = File.Open(fileName, FileMode.Create))
@@ -203,16 +251,14 @@ namespace ClientWpf.Model
                                 binaryWriter.Close();
                             }
                         }
-                    }
 
-                    // если без исключения ArgumentOutOfRangeException, значит пришёл файл
-                    ChatLog = "Вы получили файл, проверьте папку";
+                        ChatLog = "Вы получили файл, проверьте папку";
+                    }                    
                 }
                 catch (ArgumentOutOfRangeException)
                 {
-                    // в случае такого исключения пришло сообщение
+                    // В случае такого исключения пришло сообщение
                     string message = Encoding.UTF8.GetString(clientData, 0, receivedByteLen);
-
                     ChatLog = message;
                 }
                 catch
@@ -222,41 +268,5 @@ namespace ClientWpf.Model
             }
         }
         #endregion
-
-        #region public Methods
-        public void ConnectToServer()
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(Host) || Port == 0 || string.IsNullOrEmpty(UserName))
-                {
-                    ChatLog = "Не хватает данных для подключения, проверьте их и попробуйте снова";
-                    return;
-                }
-
-                // после выполнения Connect сервер принимает клиента методом AcceptAsync()
-                _clientSocket.Connect(Host, Port);
-
-                Task.Run(() => ReceiveDataAsync());
-                Task.Run(() => SendMessageAsync());
-                Task.Run(() => SendFileAsync());
-            }
-            catch (Exception ex)
-            {
-                ChatLog = ex.Message;
-            }
-        }
-
-        public void SendMessage()
-        {
-            _isSendMessage = true;
-        }
-
-        public void SendFile()
-        {
-            _isSendFile = true;
-        }
-        #endregion
-
     }
 }

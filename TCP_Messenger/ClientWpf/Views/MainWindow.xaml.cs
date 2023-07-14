@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 using ClientWpf.ViewModels;
 
@@ -11,7 +6,11 @@ namespace ClientWpf
 {
     public partial class MainWindow : Window
     {
+        #region private Members
         private ClientViewModel clientViewModel;
+        #endregion
+
+        #region Constructors
         public MainWindow()
         {
             InitializeComponent();
@@ -19,7 +18,9 @@ namespace ClientWpf
 
             DataContext = clientViewModel;
         }
+        #endregion
 
+        #region private Methods
         private void ImagePanel_Drop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -32,5 +33,6 @@ namespace ClientWpf
                 }
             }
         }
+        #endregion
     }
 }

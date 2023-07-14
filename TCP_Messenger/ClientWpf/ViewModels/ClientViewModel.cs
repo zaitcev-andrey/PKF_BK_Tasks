@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using ClientWpf.Model;
+﻿using ClientWpf.Models;
 using ClientWpf.Commands;
 
 namespace ClientWpf.ViewModels
@@ -12,15 +6,13 @@ namespace ClientWpf.ViewModels
     internal class ClientViewModel
     {
         #region private Members
-        private ClientModel _model;
-        
+        private ClientModel _model;        
         #endregion
 
         #region Constructors
         public ClientViewModel()
         {
-            _model = new ClientModel();
-            
+            _model = new ClientModel();            
         }
         #endregion
 
@@ -32,7 +24,6 @@ namespace ClientWpf.ViewModels
         private RelayCommand _connectToServerCommand;
         private RelayCommand _sendMessageCommand;
         private RelayCommand _sendFileCommand;
-        private RelayCommand _dropPanelCommand;
         #endregion
 
         #region public Commands
