@@ -6,39 +6,43 @@ public class TriggerForCubeMazeForwardRotation : MonoBehaviour
 {
     [SerializeField] private Transform _cubeMazeWithPlayer;
     private GameManager _gameManager;
+    private LevelTextManager _levelsTextManager;
 
     private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _levelsTextManager = FindObjectOfType<LevelTextManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (_gameManager.ForwardTriggers[0].activeSelf)
         {
-            ChangeTriggers(0);
-            DoRotation(0);
+            SetChanges(0);
         }
         else if (_gameManager.ForwardTriggers[1].activeSelf)
         {
-            ChangeTriggers(1);
-            DoRotation(1);
+            SetChanges(1);
         }
         else if (_gameManager.ForwardTriggers[2].activeSelf)
         {
-            ChangeTriggers(2);
-            DoRotation(2);
+            SetChanges(2);
         }
         else if (_gameManager.ForwardTriggers[3].activeSelf)
         {
-            ChangeTriggers(3);
-            DoRotation(3);
+            SetChanges(3);
         }
         else if (_gameManager.ForwardTriggers[4].activeSelf)
         {
-            ChangeTriggers(4);
-            DoRotation(4);
+            SetChanges(4);
         }
+    }
+
+    private void SetChanges(int index)
+    {
+        ChangeTriggers(index);
+        DoRotation(index);
+        _levelsTextManager.ChangeColorForLevelText(index);
     }
 
     private void ChangeTriggers(int index)
