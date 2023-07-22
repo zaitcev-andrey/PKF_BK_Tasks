@@ -1,11 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject _pauseMenuPanel;
+    [SerializeField] private GameObject _settingsPanel;
+    private AllSounds _allSounds;
+
+    private void Start()
+    {
+        Cursor.visible = false;
+        _allSounds = FindObjectOfType<AllSounds>();
+    }
 
     private void Update()
     {
@@ -19,6 +25,8 @@ public class PauseMenuManager : MonoBehaviour
             {
                 _pauseMenuPanel.SetActive(true);
                 Time.timeScale = 0;
+                Cursor.visible = true;
+                _allSounds.PauseAllSounds();
             }
         }
     }
@@ -26,12 +34,22 @@ public class PauseMenuManager : MonoBehaviour
     public void ContinueOnClick()
     {
         _pauseMenuPanel.SetActive(false);
+        _settingsPanel.SetActive(false);
+        Cursor.visible = false;
         Time.timeScale = 1;
+        _allSounds.UnPauseAllSounds();
+    }
+
+    public void SettingsOnClick()
+    {
+        _pauseMenuPanel.SetActive(false);
+        _settingsPanel.SetActive(true);
     }
 
     public void RestartGameOnClick()
     {
         SceneManager.LoadScene(1);
+        Cursor.visible = false;
         Time.timeScale = 1;
     }
 
