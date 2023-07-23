@@ -17,7 +17,7 @@ public class PauseMenuManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(_pauseMenuPanel.activeSelf)
+            if(_pauseMenuPanel.activeSelf || _settingsPanel.activeSelf)
             {
                 ContinueOnClick();
             }
