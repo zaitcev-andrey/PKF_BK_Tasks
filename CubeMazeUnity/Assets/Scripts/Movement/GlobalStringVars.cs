@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class GlobalStringVars
 {
     #region InputVars
@@ -9,4 +5,3 @@ public class GlobalStringVars
     public const string VERTICAL_AXIS = "Vertical";
     #endregion
 }
-
