@@ -26,4 +26,4 @@
 Финиш (зелёная лунка)
 ![](Image7.png)
 Весь куб целиком
-<center><img src="AllCubeMaze.png"></center>
+<p align="center"> <img src="AllCubeMaze.png"/> </p>
