@@ -1,7 +1,7 @@
-﻿<Application x:Class="CalculatorWpf.App"
+﻿<Application x:Class="CalculatorWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CalculatorWpf"
+             xmlns:local="clr-namespace:CalculatorWPF"
              StartupUri="Views/CalculatorView.xaml">
     <Application.Resources>
          
